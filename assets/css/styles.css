@@ -1,0 +1,123 @@
+/* ============================================================
+   WILD CAMPERS — brand site
+   Fonts: poster-gothic-round-cond-atf (Adobe Typekit)
+   Palette: Paper #FFFFFF · Carbon #020708 · Amber #D28923 · Pine #213627
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --carbon:#020708;
+  --amber:#d28923;
+  --pine:#213627;
+  --font-display:"poster-gothic-round-cond-atf", "Arial Narrow", sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--carbon);
+  color:var(--paper);
+  font-family:var(--font-display);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;height:100svh;min-height:560px;overflow:hidden;background:var(--carbon)}
+.hero__video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+}
+.hero::after{ /* subtle vignette to seat the baked logo */
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 55%,transparent 55%,rgba(2,7,8,.28) 100%);
+}
+.hero__scroll{
+  position:absolute;left:50%;bottom:34px;transform:translateX(-50%);
+  z-index:3;display:flex;flex-direction:column;align-items:center;gap:12px;
+  font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.hero__scroll-line{width:1px;height:46px;background:linear-gradient(var(--amber),transparent);
+  animation:scrolldrop 1.8s var(--ease) infinite}
+@keyframes scrolldrop{0%{transform:scaleY(.2);transform-origin:top;opacity:0}
+  40%{opacity:1}100%{transform:scaleY(1);transform-origin:top;opacity:0}}
+
+/* ---------- FULL-BLEED PHOTO SECTIONS ---------- */
+.shot{position:relative;background:var(--carbon);line-height:0}
+.shot img{width:100%;height:auto}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(38px) scale(.985);
+  transition:opacity 1s var(--ease), transform 1.15s var(--ease)}
+.reveal.is-in{opacity:1;transform:none}
+
+/* ---------- LOGO — static topo field, only logos slide ---------- */
+.logos{position:relative;height:260vh;background:#201b11}
+.logos__sticky{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;align-items:center}
+.logos__topo{position:absolute;inset:0;z-index:0;
+  background:#201b11 url(../img/topo.webp) center/cover no-repeat}
+.logos__track{
+  position:relative;z-index:1;display:flex;align-items:center;height:100%;
+  gap:clamp(40px,4vw,90px);padding-left:clamp(28px,9.7vw,190px);will-change:transform}
+.lockup{flex:0 0 auto;width:auto;max-width:none;display:block}
+.lockup--primary{height:clamp(140px,25vh,260px)}
+.lockup--cards{height:clamp(300px,54vh,560px);filter:drop-shadow(0 30px 60px rgba(0,0,0,.4))}
+.lockup__pad{flex:0 0 auto;width:clamp(140px,22vw,460px)}
+.logos__progress{
+  position:absolute;left:clamp(20px,4vw,64px);right:clamp(20px,4vw,64px);
+  bottom:44px;height:2px;background:rgba(255,255,255,.12);border-radius:2px;z-index:2}
+.logos__progress i{display:block;height:100%;width:0;background:var(--amber);border-radius:2px}
+
+/* ---------- COLORS — palette cards with 3D hover tilt ---------- */
+.colors{position:relative;background:#201b11;
+  padding:clamp(70px,10vh,130px) 0 clamp(80px,11vh,150px)}
+.colors__topo{position:absolute;inset:0;z-index:0;
+  background:#201b11 url(../img/topo.webp) center/cover no-repeat}
+.colors__inner{position:relative;z-index:1;max-width:1720px;margin:0 auto;
+  padding:0 clamp(24px,4vw,80px)}
+.overline{display:flex;align-items:center;gap:12px;font-size:14px;
+  letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+.overline__sq{width:10px;height:10px;background:var(--amber);display:inline-block}
+.overline em{color:rgba(255,255,255,.4);font-style:normal}
+.rule{border:0;height:1px;background:rgba(255,255,255,.14);margin:20px 0 34px}
+.colors__title{font-size:clamp(42px,6vw,74px);line-height:.9;
+  text-transform:uppercase;letter-spacing:.01em;color:var(--paper)}
+.colors__caption{margin-top:14px;font-size:clamp(16px,1.4vw,21px);
+  color:rgba(255,255,255,.6);letter-spacing:.02em}
+.colors__grid{margin-top:clamp(40px,5vh,66px);display:grid;
+  grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.2vw,40px);perspective:1200px}
+.swatch{margin:0}
+.swatch__chip{position:relative;aspect-ratio:3/4;border-radius:18px;background:var(--c);
+  padding:26px;display:flex;flex-direction:column;justify-content:space-between;
+  border:1px solid rgba(255,255,255,.06);box-shadow:0 26px 55px rgba(0,0,0,.42);
+  transform-style:preserve-3d;transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+  will-change:transform}
+.swatch__chip--ink-dark{color:#020708}
+.swatch__chip--ink-light{color:#ffffff}
+.swatch__no{font-size:15px;letter-spacing:.12em;opacity:.65}
+.swatch__label{display:flex;flex-direction:column;gap:5px;transform:translateZ(28px)}
+.swatch__label strong{font-size:clamp(26px,2.4vw,40px);font-weight:700;
+  text-transform:uppercase;line-height:.9}
+.swatch__label span{font-size:14px;letter-spacing:.14em;opacity:.82}
+.swatch figcaption{margin-top:16px;font-size:13px;letter-spacing:.06em;
+  color:rgba(255,255,255,.5)}
+.swatch__chip:hover{box-shadow:0 46px 90px rgba(0,0,0,.55)}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:860px){
+  .colors__grid{grid-template-columns:repeat(2,1fr);gap:20px}
+  .lockup--primary{height:clamp(110px,20vh,200px)}
+  .lockup--cards{height:clamp(240px,42vh,440px)}
+}
+@media (max-width:560px){
+  .hero{height:88svh}
+  .lockup--primary{height:120px}
+  .lockup--cards{height:260px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero__scroll-line{animation:none}
+  html{scroll-behavior:auto}
+}
