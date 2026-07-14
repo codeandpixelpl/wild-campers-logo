@@ -16,51 +16,6 @@
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
   }
 
-  /* ---------- Logo track horizontal scroll (left → right) ---------- */
-  var section = document.getElementById('logo');
-  var track = document.getElementById('logosTrack');
-  var bar = document.getElementById('logosBar');
-  var travel = 0;
-  var curr = 0, target = 0;
-
-  function measure() {
-    if (!track) return;
-    var over = track.scrollWidth - window.innerWidth;
-    travel = over > 0 ? over : 0;
-  }
-
-  function progress() {
-    if (!section) return 0;
-    var rect = section.getBoundingClientRect();
-    var scrollable = section.offsetHeight - window.innerHeight;
-    if (scrollable <= 0) return 0;
-    var p = (-rect.top) / scrollable;
-    return Math.max(0, Math.min(1, p));
-  }
-
-  function loop() {
-    var p = progress();
-    target = -travel * p;                 // advance variants left → right
-    curr += (target - curr) * (reduce ? 1 : 0.12);
-    if (track) track.style.transform = 'translate3d(' + curr.toFixed(2) + 'px,0,0)';
-    if (bar) bar.style.width = (p * 100).toFixed(1) + '%';
-    requestAnimationFrame(loop);
-  }
-
-  window.addEventListener('resize', measure);
-  window.addEventListener('load', measure);
-  if (track) {
-    var imgs = track.querySelectorAll('img');
-    var pending = imgs.length;
-    if (!pending) measure();
-    imgs.forEach(function (im) {
-      if (im.complete) { if (--pending === 0) measure(); }
-      else im.addEventListener('load', function () { if (--pending === 0) measure(); });
-    });
-  }
-  measure();
-  requestAnimationFrame(loop);
-
   /* ---------- Color swatches — 3D tilt on hover ---------- */
   if (!reduce && window.matchMedia('(hover:hover)').matches) {
     var MAX = 12; // deg
