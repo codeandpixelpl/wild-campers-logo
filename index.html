@@ -5,10 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>WILD CAMPERS — Wolność. Przygoda. Niezależność.</title>
 <meta name="description" content="WILD CAMPERS — wynajem kamperów. Wolność. Przygoda. Niezależność. Go wild. Sleep anywhere." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://use.typekit.net/ane1jru.css" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&display=swap" />
 <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -27,31 +24,35 @@
       </div>
     </section>
 
-    <!-- 02 · LOGO — system znaku, 5 wersji na tłach -->
-    <section class="marks" id="logo" aria-label="System znaku WILD CAMPERS — wersje">
-      <div class="marks__row reveal">
-        <figure class="mark mark--paper">
-          <img src="assets/img/mark-0.svg" alt="Znak WILD CAMPERS — pełny kolor na jasnym tle" />
-        </figure>
-        <figure class="mark mark--carbon">
-          <img src="assets/img/mark-1.svg" alt="Znak WILD CAMPERS — biały na grafitowym" />
-        </figure>
-        <figure class="mark mark--pine">
-          <img src="assets/img/mark-2.svg" alt="Znak WILD CAMPERS — amber na zieleni" />
-        </figure>
-        <figure class="mark mark--pine">
-          <img src="assets/img/mark-3.svg" alt="Znak WILD CAMPERS — biały na zieleni" />
-        </figure>
-        <figure class="mark mark--amber">
-          <img src="assets/img/mark-4.svg" alt="Znak WILD CAMPERS — biały na amber" />
-        </figure>
+    <!-- 02 · LOGO — static topo bg, only marks slide (wersje znaku) -->
+    <section class="logos" id="logo" aria-label="System znaku WILD CAMPERS — wersje">
+      <div class="logos__sticky">
+        <div class="logos__topo" aria-hidden="true"></div>
+        <div class="logos__track" id="logosTrack">
+          <figure class="markcard markcard--paper">
+            <img src="assets/img/mark-0.svg" alt="Znak WILD CAMPERS — pełny kolor na jasnym tle" />
+          </figure>
+          <figure class="markcard markcard--carbon">
+            <img src="assets/img/mark-1.svg" alt="Znak WILD CAMPERS — biały na grafitowym" />
+          </figure>
+          <figure class="markcard markcard--pine">
+            <img src="assets/img/mark-2.svg" alt="Znak WILD CAMPERS — amber na zieleni" />
+          </figure>
+          <figure class="markcard markcard--pine">
+            <img src="assets/img/mark-3.svg" alt="Znak WILD CAMPERS — biały na zieleni" />
+          </figure>
+          <figure class="markcard markcard--amber">
+            <img src="assets/img/mark-4.svg" alt="Znak WILD CAMPERS — biały na amber" />
+          </figure>
+          <span class="lockup__pad" aria-hidden="true"></span>
+        </div>
+        <div class="logos__progress" aria-hidden="true"><i id="logosBar"></i></div>
       </div>
     </section>
 
-    <!-- 03 · MOOD — kobieta w moro + kontur znaku -->
-    <section class="shot shot--overlay reveal" aria-label="Wolność w kadrze">
-      <img src="assets/img/sec-woman.webp" alt="Kobieta w bluzie moro na tle gór — WILD CAMPERS" />
-      <img class="shot__mark" src="assets/img/union.svg" alt="" aria-hidden="true" />
+    <!-- 03 · MOOD — kobieta w moro -->
+    <section class="shot reveal" aria-label="Wolność w kadrze">
+      <img src="assets/img/sec-woman.webp" alt="Kobieta w bluzie moro na tle gór z kamperem — WILD CAMPERS" />
     </section>
 
     <!-- 04 · TYPOGRAFIA -->
@@ -110,9 +111,11 @@
       <img src="assets/img/sec-water.webp" alt="Rodzina brodząca w górskim jeziorze — WILD CAMPERS" />
     </section>
 
-    <!-- 08 · COLLATERAL -->
-    <section class="shot reveal" aria-label="Materiały marki">
-      <img src="assets/img/sec-collateral.webp" alt="Materiały brandingowe WILD CAMPERS — czapka, kubek, koszulka, bluza, bidon, worek" />
+    <!-- 08 · COLLATERAL — mockupy wyśrodkowane na polu topo -->
+    <section class="showcase reveal" aria-label="Materiały marki">
+      <div class="showcase__topo" aria-hidden="true"></div>
+      <img class="showcase__img" src="assets/img/sec-collateral.webp"
+           alt="Materiały brandingowe WILD CAMPERS — czapka, kubek, koszulka, bluza, bidon, worek" />
     </section>
 
     <!-- 09 · LIFESTYLE -->
@@ -120,8 +123,9 @@
       <img src="assets/img/sec-man.webp" alt="Mężczyzna w plenerze — WILD CAMPERS" />
     </section>
 
-    <!-- 10 · CLOSING — znak na ciemnym tle -->
+    <!-- 10 · CLOSING — znak na polu topo -->
     <section class="closing reveal" aria-label="WILD CAMPERS">
+      <div class="closing__topo" aria-hidden="true"></div>
       <img class="closing__mark" src="assets/img/mark-footer.svg" alt="WILD CAMPERS" />
     </section>
 
